@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Front End Test - César Lima</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <img alt="" src="logo.png" />
+    </header>
+
+    <div class="covid">COVID 19 | A nossa resposta <span>Saber mais</span></div>
+    <div class="container-1">
+        <div class="banner">
+            <img alt="" src="banner.jpg" />
+        </div>
+    </div>
+    <div class="section-1">
+        <img alt="" src="nos.png" />
+    </div>
+    <div class="section-2">
+        <h1>Liga-te a uma net à prova de 10 milhões</h1>
+    </div>
+    <div class="section-3">
+        <h1>Descobre a nova app NICE</h1>
+    </div>
+    <div class="section-4">
+        <button>Saber Mais</button>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="patch-1.png" style="width: 100%;" />
+        </div>
+
+        <div class="mySlides fade">
+            <img src="patch-2.png" style="width: 100%;" />
+        </div>
+
+        <div class="mySlides fade">
+            <img src="patch-3.png" style="width: 100%;" />
+        </div>
+
+        <div class="mySlides fade">
+            <img src="patch-4.png" style="width: 100%;" />
+        </div>
+    </div>
+
+    <div class="dots" style="text-align: center;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <div class="section-5">
+        <h1 class="center">
+            <b>Liga-te aos melhores conteúdos</b>
+        </h1>
+        <h3 class="center">Fica em casa, ligado aos melhor da cultura, dos filmes, séries e desporto</h3>
+    </div>
+    <div class="patchs">
+        <img alt="" src="patch-1.png" />
+        <img alt="" src="patch-2.png" />
+        <img alt="" src="patch-3.png" />
+    </div>
+    <div class="container">
+        <div class="layout">
+            <p class="col col-main">
+                <img class="lft-img" alt="" src="turtle.jpg" />
+            </p>
+            <div class="col col-complementary">
+                <strong class="blck">
+                        <p class="fnt-size title">Descobre,</p>
+                        as ultimas noticias de videojogos
+                    </strong>
+                <ul id="myDIV" class="myText">
+                    <li>Um novo jogo com conteudos super interessantes</li>
+                    <li>Uma experiência imersiva</li>
+                    <li>Uma nova Maneira de Jogar</li>
+                </ul>
+                <ul id="myText" class="myText-2">
+                    <li>Novos videos e conteudos extra para os teus jogos</li>
+                    <li>Uma imensidão de novos conteudos extra</li>
+                    <li>Cria a tua propria dimensão neste novo jogo interactivo</li>
+                </ul>
+
+                <a id="video" class="links">Videojogos</a>
+
+                <a id="hide" class="links">Multimedia</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <img src="logo.png" />
+    </div>
+
+    <script>
+        $("#video").css("text-decoration", "underline");
+        $("#video").css("color", "#2aa987");
+
+        $(document).ready(function() {
+            $("#hide").click(function() {
+                $("#myDIV").hide();
+                $("#video").css("text-decoration", "none");
+                $("#video").css("color", "black");
+            });
+            $("#hide").click(function() {
+                $("#myText").show();
+                $("#hide").css("text-decoration", "underline");
+                $("#hide").css("color", "#2aa987");
+            });
+        });
+
+        $(document).ready(function() {
+            $("#video").click(function() {
+                $("#myText").hide();
+                $("#hide").css("text-decoration", "none");
+                $("#hide").css("color", "black");
+            });
+            $("#video").click(function() {
+                $("#myDIV").show();
+                $("#video").css("text-decoration", "underline");
+                $("#video").css("color", "#2aa987");
+            });
+        });
+    </script>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides((slideIndex += n));
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides((slideIndex = n));
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+
+</html>
